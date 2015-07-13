@@ -98,7 +98,7 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 ## Special Thanks To...
 
- - [Steve Sloan][http://www.finagle.org] for his [fast_xor gem][https://github.com/CodeMonkeySteve/fast_xor] from which most of the tests are borrowed
- - [James Coglan][http://jcoglan.com] for his [guide on writing a JRuby Java extension][https://blog.jcoglan.com/2012/08/02/your-first-ruby-native-extension-java/]
+ - [Steve Sloan](http://www.finagle.org) for his [fast_xor gem](https://github.com/CodeMonkeySteve/fast_xor) from which most of the tests are borrowed
+ - [James Coglan](http://jcoglan.com) for his [guide on writing a JRuby Java extension](https://blog.jcoglan.com/2012/08/02/your-first-ruby-native-extension-java/)
  - To all [contributers](https://github.com/fny/xorcist/graphs/contributors)! :beers:
 
