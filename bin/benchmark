@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
+require 'benchmark/ips'
+require 'xorcist'
+
+def ruby_xor!(x, y)
+  x.replace(x.bytes.zip(y.bytes).map { |x, y| x ^ y }.pack('c*'))
+end
+
+Benchmark.ips do |x|
+  x.report("ruby") { ruby_xor!('one string', 'two string') }
+  x.report("xorcist") { Xorcist.xor!('one string', 'two string') }
+end
