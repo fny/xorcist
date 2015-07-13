@@ -54,22 +54,23 @@ Disclaimer: these are run from my craptop. Run 'em yourself with `bin/benchmark`
 
 ```
 Calculating -------------------------------------
-                ruby    11.136k i/100ms
-             xorcist    71.472k i/100ms
+                ruby    26.378k i/100ms
+             xorcist    73.291k i/100ms
 -------------------------------------------------
-                ruby    144.198k (± 1.3%) i/s -    723.840k
-             xorcist      2.155M (± 0.7%) i/s -     10.792M
+                ruby    376.513k (± 0.5%) i/s -      1.899M
+             xorcist      2.150M (± 3.9%) i/s -     10.774M
 ```
 
 ### JRuby 1.7.19
 
 ```
+Picked up JAVA_TOOL_OPTIONS: -javaagent:/usr/share/java/jayatanaag.jar 
 Calculating -------------------------------------
-                ruby   142.000  i/100ms
-             xorcist    88.006k i/100ms
+                ruby    31.795k i/100ms
+             xorcist   118.084k i/100ms
 -------------------------------------------------
-                ruby      3.113k (±32.6%) i/s -     11.218k in   5.781000s
-             xorcist      3.184M (±32.9%) i/s -     12.321M
+                ruby    978.078k (±11.2%) i/s -      4.801M
+             xorcist      3.897M (±14.1%) i/s -     19.012M
 ```
 
 ## Installation
@@ -100,5 +101,6 @@ The gem is available as open source under the terms of the [MIT License](http://
 
  - [Steve Sloan](http://www.finagle.org) for his [fast_xor gem](https://github.com/CodeMonkeySteve/fast_xor) from which most of the tests are borrowed
  - [James Coglan](http://jcoglan.com) for his [guide on writing a JRuby Java extension](https://blog.jcoglan.com/2012/08/02/your-first-ruby-native-extension-java/)
+ - [Thomas Leitner](https://github.com/gettalong) for a faster pure Ruby xor implementation used in the benchmark.
  - To all [contributers](https://github.com/fny/xorcist/graphs/contributors)! :beers:
 

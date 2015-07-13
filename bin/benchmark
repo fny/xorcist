@@ -5,7 +5,12 @@ require 'benchmark/ips'
 require 'xorcist'
 
 def ruby_xor!(x, y)
-  x.replace(x.bytes.zip(y.bytes).map { |x, y| x ^ y }.pack('c*'))
+  i = 0
+  max = (x.length < y.length ? x.length : y.length)
+  while i < max
+    x.setbyte(i, x.getbyte(i) ^ y.getbyte(i))
+    i += 1
+  end
 end
 
 Benchmark.ips do |x|
