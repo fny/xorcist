@@ -16,7 +16,7 @@ public class Xorcist {
             xBytes[i] = (byte) (xBytes[i] ^ yBytes[i]);
         }
 
-        x.setValue(new ByteList(xBytes));
+        x.setValue(new ByteList(xBytes, false));
         return x;
     }
 }
