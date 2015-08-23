@@ -11,8 +11,10 @@ Blazing-fast-cross-platform-monkey-patch-free string XOR. Yes, that means JRuby 
 require 'xorcist'
 
 a, b = 'a', 'b'
-Xorcist.xor(a, b)
-Xorcist.xor!(a, b)
+Xorcist.xor(a, b) # => "\u0003"
+a # => 'a'
+Xorcist.xor!(a, b) # => "\u0003"
+a # => "\u0003"
 ```
 
 You can `include Xorcist` to expose its methods:
@@ -52,7 +54,7 @@ Note the precise encoding `xor`'s output is undefined in the v1.0.x releases. In
 
 ## Benchmarks
 
-Disclaimer: these are run from my craptop. Run 'em yourself with `bin/benchmark`.
+Disclaimer: these are run from my craptop. Run 'em yourself with `bin/benchmark`. You'll need to have [`benchmark-ips`](https://github.com/evanphx/benchmark-ips) installed.
 
 ### MRI 2.2.1
 
@@ -105,6 +107,6 @@ The gem is available as open source under the terms of the [MIT License](http://
 
  - [Steve Sloan](http://www.finagle.org) for his [fast_xor gem](https://github.com/CodeMonkeySteve/fast_xor) from which most of the tests are borrowed
  - [James Coglan](http://jcoglan.com) for his [guide on writing a JRuby Java extension](https://blog.jcoglan.com/2012/08/02/your-first-ruby-native-extension-java/)
- - [Thomas Leitner](https://github.com/gettalong) for a faster pure Ruby xor implementation used in the benchmark.
+ - [Thomas Leitner](https://github.com/gettalong) for a faster pure Ruby XOR implementation that's used in the benchmark
  - To all [contributers](https://github.com/fny/xorcist/graphs/contributors)! :beers:
 
