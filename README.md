@@ -46,6 +46,10 @@ require 'xorcist/string_methods'
 String.include(Xorcist::StringMethods)
 ```
 
+## Encodings
+
+Note the precise encoding `xor`'s output is undefined in the v1.0.x releases. In MRI `xor!` will return a string using your default encoding. With JRuby, `xor!` will return an ASCII-8BIT string.
+
 ## Benchmarks
 
 Disclaimer: these are run from my craptop. Run 'em yourself with `bin/benchmark`.
