@@ -15,22 +15,19 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.require_paths = ['lib']
-  files = %w[README.md] +
-          Dir.glob('ext/**/*.{c,java,rb}') +
-          Dir.glob('lib/**/*.rb') +
-          Dir.glob('test/**/*')
+
+  files = %w[README.md] + Dir.glob('lib/**/*.rb')
 
   if RUBY_ENGINE == 'jruby'
     spec.platform = 'java'
-    files << 'lib/xorcist.jar'
+    spec.files = files + Dir.glob('lib/**/*.java') + Dir.glob('lib/**/*.jar')
   else
-    spec.extensions = ['ext/xorcist/extconf.rb']
+    spec.files = files + %w[ext/xorcist/extconf.rb ext/xorcist/xorcist.c]
+    spec.extensions = %w[ext/xorcist/extconf.rb]
   end
-
-  spec.files = files
 
   spec.add_development_dependency 'bundler', '~> 1.10'
   spec.add_development_dependency 'minitest', '~> 5.7.0'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rake-compiler'
+  spec.add_development_dependency 'rake-compiler', '~> 0.9.5'
 end
