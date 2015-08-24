@@ -5,4 +5,6 @@ rvm:
   - jruby-9.0.0.0
   - jruby-1.7.20
   - rbx
-before_install: gem install bundler -v 1.10.5
+before_install:
+ - 'if [ "$TRAVIS_RUBY_VERSION" = "jruby-9.0.0.0" ]; then rvm get head && rvm reload && rvm install $TRAVIS_RUBY_VERSION && rvm use $TRAVIS_RUBY_VERSION; fi'
+ - gem install bundler -v 1.10.5
