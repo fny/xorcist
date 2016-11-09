@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/fny/xorcist"
   spec.license       = "MIT"
 
-  spec.require_paths = ['lib']
+  spec.require_paths = ['lib', 'ext']
 
   files = %w[README.md] + Dir.glob('lib/**/*.rb')
 
