@@ -4,7 +4,7 @@ if RUBY_ENGINE == 'jruby'
   require 'jruby'
   require File.expand_path('../xorcist.jar', __FILE__)
 else
-  require File.expand_path('../xorcist.so', __FILE__)
+  require 'xorcist/xorcist'
 end
 
 module Xorcist
