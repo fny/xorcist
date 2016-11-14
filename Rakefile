@@ -15,7 +15,9 @@ if RUBY_ENGINE == 'jruby'
   task :default => :test
 else
   require 'rake/extensiontask'
-  Rake::ExtensionTask.new('xorcist', gemspec)
+  Rake::ExtensionTask.new('xorcist', gemspec) do |ext|
+    ext.lib_dir = "lib/xorcist"
+  end
   task :default => [:compile, :test]
 end
 
