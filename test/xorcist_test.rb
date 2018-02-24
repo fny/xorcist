@@ -15,6 +15,7 @@ class XorcistTest < Minitest::Test
     b = a
     xor!(b, X)
     assert_equal(a, b)
+    refute_equal("String", b)
   end
 
   #
@@ -39,4 +40,12 @@ class XorcistTest < Minitest::Test
     xor!(b, X*2)
     refute_equal(a, b)
   end
+
+  def test_xor_frozen
+    a = "An0ther-5tring".freeze
+    assert_raises(RuntimeError) { xor!(a, X) }
+    b = xor!(a.dup, X)
+    assert_equal b, xor(a, X)
+  end
+
 end
