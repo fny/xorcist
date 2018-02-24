@@ -1,7 +1,7 @@
 require 'xorcist/version'
 
 if RUBY_ENGINE == 'jruby'
-  require 'jruby'
+  require 'java'
   require File.expand_path('../xorcist.jar', __FILE__)
 else
   require 'xorcist/xorcist'
