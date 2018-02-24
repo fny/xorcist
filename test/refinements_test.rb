@@ -1,6 +1,6 @@
 require 'test_helper'
 
-if RUBY_ENGINE != 'jruby' && RUBY_ENGINE != 'rbx' && RUBY_VERSION >= '2.0.0'
+if RUBY_ENGINE != 'rbx' && RUBY_VERSION >= '2.0.0'
   require 'xorcist/refinements'
 
   class RefinementsTest < Minitest::Test
