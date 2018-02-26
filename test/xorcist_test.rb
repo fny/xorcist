@@ -17,6 +17,18 @@ class XorcistTest < Minitest::Test
     assert_equal(a, b)
   end
 
+  class A; end
+
+  def test_xor_type_checking
+    assert_raises(TypeError) {
+      xor(A, "string")
+    }
+
+    assert_raises(TypeError) {
+      xor("string", A)
+    }
+  end
+
   #
   # Tests for different string storage behaviors in MRI.
   # See http://patshaughnessy.net/2012/1/4/never-create-ruby-strings-longer-than-23-characters
