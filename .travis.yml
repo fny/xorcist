@@ -13,4 +13,4 @@ matrix:
     - rvm: jruby-head
 env:
   - RUBYOPT=""
-  - RUBYOPT="--enable-frozen-string-literal"
+  - RUBYOPT="--enable-frozen-string-literal  --debug=frozen-string-literal"

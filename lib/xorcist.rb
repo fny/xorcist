@@ -12,4 +12,18 @@ module Xorcist
   def xor(x, y)
     xor!(x.dup, y)
   end
+
+  if RUBY_ENGINE == 'rbx'
+    alias_method :_xor!, :xor!
+    remove_method :xor!
+    def xor!(x, y)
+      if x.frozen?
+        raise(RuntimeError, "can't modify frozen String")
+      else
+        _xor!(x, y)
+      end
+    end
+  end
 end
+
+
