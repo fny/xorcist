@@ -13,9 +13,12 @@ class XorcistTest < Minitest::Test
   def test_xor_in_place
     a = "String"
     b = a
-    xor!(b, X)
-    assert_equal(a, b)
-    refute_equal("String", b)
+
+    frozen_strings_dependent {
+      xor!(b, X)
+      assert_equal(a, b)
+      refute_equal("String", b)
+    }
   end
 
   class A; end
@@ -30,11 +33,18 @@ class XorcistTest < Minitest::Test
     }
   end
 
+  def test_xor_frozen
+    a = "An0ther-5tring".freeze
+    assert_raises(RuntimeError) { xor!(a, X) }
+    b = xor!(a.dup, X)
+    assert_equal b, xor(a, X)
+  end
+
   #
-  # Tests for different string storage behaviors in MRI.
+  # MRI-specific tests for different string storage behaviors in MRI
+  # Might as well run them in other Rubies too
   # See http://patshaughnessy.net/2012/1/4/never-create-ruby-strings-longer-than-23-characters
   # for details.
-  # Might as well run them in other Rubies too.
   #
 
   def test_embedded_string
@@ -52,12 +62,4 @@ class XorcistTest < Minitest::Test
     xor!(b, X*2)
     refute_equal(a, b)
   end
-
-  def test_xor_frozen
-    a = "An0ther-5tring".freeze
-    assert_raises(RuntimeError) { xor!(a, X) }
-    b = xor!(a.dup, X)
-    assert_equal b, xor(a, X)
-  end
-
 end

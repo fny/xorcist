@@ -16,8 +16,10 @@ if RUBY_ENGINE != 'rbx' && RUBY_VERSION >= '2.0.0'
     def test_xor_in_place
       a = "String"
       b = a
-      b.xor!(X)
-      assert_equal(a, b)
+      frozen_strings_dependent {
+        b.xor!(X)
+        assert_equal(a, b)
+      }
     end
   end
 end
