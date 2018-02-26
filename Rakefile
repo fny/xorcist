@@ -11,7 +11,10 @@ gemspec = Gem::Specification.load(File.expand_path('xorcist.gemspec',  __FILE__)
 
 if RUBY_ENGINE == 'jruby'
   require 'rake/javaextensiontask'
-  Rake::JavaExtensionTask.new('xorcist', gemspec)
+  Rake::JavaExtensionTask.new('xorcist', gemspec) do |ext|
+    ext.source_version = '1.6'
+    ext.target_version = '1.6'
+  end
   task :default => :test
 else
   require 'rake/extensiontask'

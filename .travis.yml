@@ -2,14 +2,12 @@ language: ruby
 rvm:
   - 2.2.3
   - 1.9.3
-  - jruby-9.0.0.0
-  - jruby-18mode
-  - jruby-19mode
+  - jruby-9.1.16.0
+  - jruby-1.7.27
   - rbx
   - ruby-head
   - jruby-head
 before_install:
- - 'if [ "$TRAVIS_RUBY_VERSION" = "jruby-9.0.0.0" ]; then rvm get head && rvm reload && rvm install $TRAVIS_RUBY_VERSION && rvm use $TRAVIS_RUBY_VERSION; fi'
  - gem install bundler -v 1.10.5
 matrix:
   allow_failures:
