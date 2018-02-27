@@ -51,7 +51,21 @@ String.include(Xorcist::StringMethods)
 
 ## Encodings
 
-Note the precise encoding `xor`'s output is undefined in the v1.0.x releases. In MRI `xor!` will return a string using your default encoding. With JRuby, `xor!` will return an ASCII-8BIT string.
+Note the precise encoding `xor`'s output is undefined in the v1.0-1.x releases. In MRI `xor!` will return a string using your default encoding. With JRuby, `xor!` will return an ASCII-8BIT string.
+
+## Security
+
+Xorcist is cryptographically signed. To be sure the gem you install hasn’t been tampered with:
+
+Add my public key as a trusted certificate:
+
+    gem cert --add <(curl -Ls https://raw.github.com/fny/xorcist/master/certs/fny.pem)
+
+Then install the gem:
+
+    gem install xorcist -P HighSecurity
+
+Checksums for all versions are also included in the checksums directory.
 
 ## Benchmarks
 
@@ -98,7 +112,7 @@ Or install it yourself as:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/fny/xorcist. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/fny/xorcist. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
 ## License
 

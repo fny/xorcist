@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'digest/sha2'
+
+`gem cert --add certs/fny.pem`
+`gem build xorcist.gemspec`
+built_gem_path = Dir.glob('xorcist-*.gem').first
+`gem install #{built_gem_path} -P HighSecurity`
+checksum = Digest::SHA512.new.hexdigest(File.read(built_gem_path))
+checksum_path = "checksums/#{built_gem_path}.sha512"
+File.open(checksum_path, 'w' ) {|f| f.write(checksum) }
