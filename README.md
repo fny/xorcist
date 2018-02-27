@@ -15,6 +15,7 @@ Xorcist.xor(a, b) # => "\u0003"
 a # => 'a'
 Xorcist.xor!(a, b) # => "\u0003"
 a # => "\u0003"
+Xorcist.xor!(a.freeze, b) # => RuntimeError!
 ```
 
 You can `include Xorcist` to expose its methods:
@@ -70,7 +71,7 @@ Calculating -------------------------------------
 ### JRuby 1.7.19
 
 ```
-Picked up JAVA_TOOL_OPTIONS: -javaagent:/usr/share/java/jayatanaag.jar 
+Picked up JAVA_TOOL_OPTIONS: -javaagent:/usr/share/java/jayatanaag.jar
 Calculating -------------------------------------
                 ruby    31.795k i/100ms
              xorcist   118.084k i/100ms
