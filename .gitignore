@@ -9,3 +9,5 @@
 /tmp/
 *.so
 Makefile
+*.gem
+*.bundle
