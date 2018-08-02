@@ -1,26 +1,13 @@
 #include <ruby.h>
 
-VALUE Xorcist = Qnil;
-
-void Init_xorcist();
-
-VALUE xor_in_place(VALUE self, VALUE x, VALUE y);
-
 VALUE xor_in_place(VALUE self, VALUE x, VALUE y) {
-    const char *src = 0;
-    char *dest = 0;
+    const char *src;
+    char *dest;
     size_t len;
     size_t y_len;
 
-    if (TYPE(x) != T_STRING) {
-        rb_raise( rb_eTypeError, "first argument must be a String" );
-        return Qnil;
-    }
-
-    if (TYPE(y) != T_STRING) {
-        rb_raise( rb_eTypeError, "second argument must be a String" );
-        return Qnil;
-    }
+    Check_Type(x, T_STRING);
+    Check_Type(y, T_STRING);
 
     rb_str_modify(x);
     dest = RSTRING_PTR(x);
@@ -41,6 +28,5 @@ VALUE xor_in_place(VALUE self, VALUE x, VALUE y) {
 }
 
 void Init_xorcist() {
-    Xorcist = rb_define_module("Xorcist");
-    rb_define_module_function(Xorcist, "xor!", xor_in_place, 2);
+    rb_define_module_function(rb_define_module("Xorcist"), "xor!", xor_in_place, 2);
 }
