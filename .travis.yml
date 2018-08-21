@@ -7,10 +7,14 @@ matrix:
     - rvm: 2.4.2
     - rvm: 2.4.2
       env: RUBYOPT="--enable-frozen-string-literal  --debug=frozen-string-literal"
+    - rvm: 2.5.1
+    - rvm: 2.5.1
+      env: RUBYOPT="--enable-frozen-string-literal  --debug=frozen-string-literal"
     - rvm: ruby-head
     - rvm: ruby-head
       env: RUBYOPT="--enable-frozen-string-literal  --debug=frozen-string-literal"
     - rvm: jruby-9.1.16.0
+    - rvm: jruby-9.2.0.0
     - rvm: jruby-head
     - rvm: rbx-3
   allow_failures:
