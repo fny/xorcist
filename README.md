@@ -3,6 +3,8 @@
 [![Gem Version](https://badge.fury.io/rb/xorcist.svg)](http://badge.fury.io/rb/xorcist)
 [![Build Status](https://travis-ci.org/fny/xorcist.svg?branch=master)](https://travis-ci.org/fny/xorcist)
 
+Note: The build is breaking due to a regression with refinements in [JRuby 9.2](https://github.com/jruby/jruby/issues/5288). This isn't an issue for earlier versions of JRuby 9.0-9.1. I'll likely release a new version without support for refinements for broader compatibility, particularly since no one seems to use refinements.
+
 Blazing-fast-cross-platform-monkey-patch-free string XOR. Yes, that means JRuby too.
 
 ## Usage
