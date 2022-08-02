@@ -1,8 +1,13 @@
 require 'xorcist/version'
 
 if RUBY_ENGINE == 'jruby'
-  require 'java'
-  require File.expand_path('../xorcist.jar', __FILE__)
+  require 'jruby'
+  require 'xorcist.jar'
+  if JRuby.respond_to?(:load_ext)
+    JRuby::Util.load_ext('org.xorcist.jruby.XorcistLibrary')
+  else
+    org.xorcist.jruby.XorcistLibrary.new.load(JRuby.runtime, false) # jruby < 9.2
+  end
 else
   require 'xorcist/xorcist'
 end

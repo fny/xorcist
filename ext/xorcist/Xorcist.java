@@ -1,3 +1,5 @@
+package org.xorcist.jruby;
+
 import org.jruby.anno.JRubyMethod;
 import org.jruby.runtime.ThreadContext;
 import org.jruby.runtime.builtin.IRubyObject;
