@@ -1,0 +1,39 @@
+name: Testing
+
+on:
+  push:
+    branches: [ master, jruby-stopped-working ]
+  pull_request:
+    branches: ['**']
+
+permissions:
+  contents: read
+  
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [
+          '2.6.10', '2.7.6', '3.0.4', '3.1.2', 'ruby-head',
+          'jruby-9.2.21.0',
+          'truffleruby-22.1.0', 'truffleruby+graalvm-22.1.0'
+        ]
+        env: [
+          'RUBYOPT="--enable-frozen-string-literal"',
+          ''
+        ]
+
+    name: Ruby ${{ matrix.ruby }} ${{contains(matrix.env, 'frozen-string') && 'w/ Frozen String' || ''}}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler-cache: true
+    - name: Install dependencies
+      run: bundle install --jobs 4 --retry 3
+    - name: Run tests
+      run: ${{matrix.env}} bundle exec rake
