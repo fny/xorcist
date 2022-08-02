@@ -1,4 +1,4 @@
-package org.xorcist.jruby;
+package fny.xorcist;
 
 import org.jruby.Ruby;
 import org.jruby.RubyModule;

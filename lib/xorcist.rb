@@ -4,9 +4,9 @@ if RUBY_ENGINE == 'jruby'
   require 'jruby'
   require 'xorcist.jar'
   if JRuby.respond_to?(:load_ext)
-    JRuby::Util.load_ext('org.xorcist.jruby.XorcistLibrary')
+    JRuby::Util.load_ext('fny.xorcist.XorcistLibrary')
   else
-    org.xorcist.jruby.XorcistLibrary.new.load(JRuby.runtime, false) # jruby < 9.2
+    fny.xorcist.XorcistLibrary.new.load(JRuby.runtime, false) # jruby < 9.2
   end
 else
   require 'xorcist/xorcist'
