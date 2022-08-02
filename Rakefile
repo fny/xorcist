@@ -14,7 +14,7 @@ if RUBY_ENGINE == 'jruby'
   Rake::JavaExtensionTask.new('xorcist', gemspec) do |ext|
     ext.release = '8'
   end
-  task :default => :test
+  task :default => [:compile, :test]
 else
   require 'rake/extensiontask'
   Rake::ExtensionTask.new('xorcist', gemspec) do |ext|
