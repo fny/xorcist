@@ -1,7 +1,14 @@
 #!/usr/bin/env ruby
 
 $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
-require 'benchmark/ips'
+begin
+  require 'benchmark/ips'
+rescue LoadError
+  puts "You need to install the benchmark-ips gem to run this benchmark."
+  puts "    gem install benchmark-ips"
+  exit 1
+end
+
 require 'xorcist'
 
 def ruby_xor!(x, y)
