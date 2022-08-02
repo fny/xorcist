@@ -2,7 +2,7 @@ name: Testing
 
 on:
   push:
-    branches: [ master, jruby-stopped-working ]
+    branches: [ master ]
   pull_request:
     branches: ['**']
 
@@ -17,13 +17,21 @@ jobs:
       matrix:
         ruby: [
           '2.6.10', '2.7.6', '3.0.4', '3.1.2', 'ruby-head',
-          'jruby-9.2.21.0',
-          'truffleruby-22.1.0', 'truffleruby+graalvm-22.1.0'
+          'jruby-9.1.17.0', 'jruby-9.2.21.0', 'jruby-9.3.6.0', 'jruby-head',
+          'truffleruby-19.3.1', 'truffleruby-20.3.0', 'truffleruby-21.3.0', 'truffleruby-22.2.0', 'truffleruby-head',
+          'truffleruby+graalvm-21.3.0', 'truffleruby+graalvm-22.1.0', 'truffleruby+graalvm-head'
         ]
         env: [
           'RUBYOPT="--enable-frozen-string-literal"',
           ''
         ]
+        inlcude:
+          - ruby: 1.9.3
+            env: ''
+          - ruby: 2.5.9
+            env: ''
+          - ruby: 2.0.0
+            env: ''
 
     name: Ruby ${{ matrix.ruby }} ${{contains(matrix.env, 'frozen-string') && 'w/ Frozen String' || ''}}
     steps:
