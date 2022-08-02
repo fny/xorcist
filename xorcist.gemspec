@@ -32,5 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'minitest', '~> 5.7'
   spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rake-compiler'
+  spec.add_development_dependency 'rake-compiler', ['>= 1.1.9']
 end
