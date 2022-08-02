@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Blazing-fast-cross-platform-monkey-patch-free string XOR. Yes, that means JRuby too."
   spec.homepage      = "https://github.com/fny/xorcist"
   spec.license       = "MIT"
+  spec.required_ruby_version  = ">= 2.0.0"
 
   spec.require_paths = ['lib']
 
