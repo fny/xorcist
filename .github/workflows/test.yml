@@ -17,7 +17,7 @@ jobs:
       matrix:
         ruby: [
           '2.6.10', '2.7.6', '3.0.4', '3.1.2',
-          'jruby-9.2.21.0', 'jruby-9.3.6.0',
+          'jruby-9.2.21.0', 'jruby-9.3.6.0', 'jruby-9.4.3.0',
           'truffleruby-21.3.0', 'truffleruby-22.2.0',
           'truffleruby+graalvm-21.3.0', 'truffleruby+graalvm-22.1.0',
         ]
